@@ -10,7 +10,7 @@
 # Depends on pyPDF2
 
 from optparse import OptionParser
-import re
+import re, math
 from PyPDF2 import pdf, PdfFileWriter, PdfFileReader
 
 def main():
@@ -49,7 +49,7 @@ def main():
 
     numPages = 1 + lastPage - firstPage
     if options.debug: print("numPages: " + str(numPages))
-    numSheets = numPages / 4
+    numSheets = math.ceil(numPages / 4)
     if options.debug: print("numSheets: " + str(numSheets))
     if (numPages % 4 > 0):
     #if ((numPages > 4) & ((numPages % 4 > 0) | (numSheets == 0))):
